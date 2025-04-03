@@ -1,3 +1,4 @@
+/*
 using System.Net.Http.Json;
 using System.Text.Json;
 
@@ -103,6 +104,7 @@ app.MapGet("/findAvailableSeats", async () =>
 
     string combinedTiles = string.Join("v", TileConstants.AllTiles);
     string url = $"https://billet.fck.dk/Stadium/GetWGLSeatsOccInfo?eventId=5811&vaoKeysForCache={combinedTiles}";
+
     try
     {
         using var response = await client.GetAsync(url);
@@ -115,11 +117,7 @@ app.MapGet("/findAvailableSeats", async () =>
 
             foreach (var seat in root.EnumerateArray())
             {
-                if (seat.GetProperty("anyRight").GetBoolean() &&
-                    seat.GetProperty("hasSgRight").GetBoolean() &&
-                    seat.GetProperty("hasResRight").GetBoolean() &&
-                    seat.GetProperty("occ").GetInt32() == 0
-                    )
+                if (seat.GetProperty("occ").GetInt32() == 0)
                 {
 
                     int seatId = seat.GetProperty("id").GetInt32();
@@ -139,10 +137,10 @@ app.MapGet("/findAvailableSeats", async () =>
                             PriceAreaId = info.PriceAreaId,
                             SectorId = sectorId,
                             Sector = new { Platform = sectorInfo.Platform, Name = sectorInfo.Name },
-                            AnyRight = seat.GetProperty("anyRight").GetBoolean(),
-                            HasSgRight = seat.GetProperty("hasSgRight").GetBoolean(),
-                            HasResRight = seat.GetProperty("hasResRight").GetBoolean(),
-                            Occ = seat.GetProperty("occ").GetInt32()
+                            anyRight = seat.GetProperty("anyRight").GetBoolean(),
+                            hasSgRight = seat.GetProperty("hasSgRight").GetBoolean(),
+                            hasResRight = seat.GetProperty("hasResRight").GetBoolean(),
+                            occ = seat.GetProperty("occ")
                         });
                     }
                 }
@@ -159,3 +157,4 @@ app.MapGet("/findAvailableSeats", async () =>
 .WithName("FindAvailableSeats");
 
 app.Run();
+*/

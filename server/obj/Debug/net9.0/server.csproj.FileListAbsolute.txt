@@ -31,3 +31,4 @@ C:\Dev\ParkenLedigNoti\server\obj\Debug\net9.0\refint\server.dll
 C:\Dev\ParkenLedigNoti\server\obj\Debug\net9.0\server.pdb
 C:\Dev\ParkenLedigNoti\server\obj\Debug\net9.0\server.genruntimeconfig.cache
 C:\Dev\ParkenLedigNoti\server\obj\Debug\net9.0\ref\server.dll
+C:\Dev\ParkenLedigNoti\server\obj\Debug\net9.0\server.sourcelink.json
